@@ -20,6 +20,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.fastbootd.available=true
 
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.recovery.usb.fastboot.pid=D00D
+
 # qcom decryption
 PRODUCT_PACKAGES_ENG += \
     qcom_decrypt \
