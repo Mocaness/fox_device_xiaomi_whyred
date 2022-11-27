@@ -1,0 +1,5 @@
+system                                                   /system              ext4    rw,barrier=1,discard                                                                            rw,wait,logical
+system_ext                                               /system_ext          ext4    rw,barrier=1,discard                                                                            rw,wait,logical
+product                                                  /product             ext4    rw,barrier=1,discard                                                                            rw,wait,logical
+vendor                                                   /vendor              ext4    rw,barrier=1,discard                                                                            rw,wait,logical
+odm                                                      /odm                 ext4    rw,barrier=1,discard                                                                            rw,wait,logical

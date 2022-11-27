@@ -1,6 +1,7 @@
 import /init.recovery.qcom_decrypt.rc
 
 on init
+    start detect-dynamic-partitions
     setprop prepdecrypt.setpatch true
     setprop prepdecrypt.loglevel 2
     exec u:r:recovery:s0 -- /system/bin/resetprop ro.boot.verifiedbootstate orange
@@ -14,3 +15,10 @@ on boot
 on property:ro.twrp.fastbootd=0
     setprop sys.usb.config mtp,adb
     setprop sys.usb.config adb
+
+service detect-dynamic-partitions /system/bin/detect-dynamic-partitions.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
