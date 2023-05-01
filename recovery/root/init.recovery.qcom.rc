@@ -8,6 +8,9 @@ on fs
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
 on boot
+    start qseecomd
+    exec u:r:recovery:s0 -- /system/bin/sleep 1s
+    start keymaster-3-0
     start health-hal-2-1
 
 on property:ro.twrp.fastbootd=0
