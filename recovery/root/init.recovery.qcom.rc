@@ -9,3 +9,7 @@ on fs
 
 on boot
     start health-hal-2-0
+
+on property:ro.twrp.fastbootd=0
+    setprop sys.usb.config mtp,adb
+    setprop sys.usb.config adb
