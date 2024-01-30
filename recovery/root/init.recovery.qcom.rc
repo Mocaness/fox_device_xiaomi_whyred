@@ -4,7 +4,7 @@ on init
     setprop prepdecrypt.setpatch true
     setprop prepdecrypt.loglevel 2
     exec u:r:recovery:s0 -- /system/bin/resetprop ro.boot.verifiedbootstate orange
-    exec u:r:recovery:s0 -- /system/bin/detect-dynamic-partitions.sh
+    exec u:r:recovery:s0 -- /system/bin/fix_dynamic_static.sh
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
