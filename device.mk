@@ -55,3 +55,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES_ENG += \
     qcom_decrypt \
     qcom_decrypt_fbe
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    keymaster_ver=3.x
