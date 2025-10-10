@@ -21,7 +21,6 @@
 # OrangeFox
 export LC_ALL="C"
 export DATE=$(sed "s/://g" <<< $(date +%y%m%d_%T))
-export FOX_VERSION="R11.1"
 export FOX_BUILD_TYPE="Unofficial"
 export FOX_VARIANT="4.19-A12-$DATE"
 export FOX_BUGGED_AOSP_ARB_WORKAROUND="1510672800" # Tue Nov 14 15:20:00 GMT 2017
