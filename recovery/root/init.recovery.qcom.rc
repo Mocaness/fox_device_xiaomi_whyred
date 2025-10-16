@@ -2,6 +2,7 @@ import /init.recovery.qcom_decrypt.rc
 
 on init
     setprop prepdecrypt.setpatch true
+    setprop prepdecrypt.loglevel 2
     exec u:r:recovery:s0 -- /system/bin/resetprop ro.boot.verifiedbootstate orange
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
