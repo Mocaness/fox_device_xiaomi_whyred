@@ -43,6 +43,7 @@ export FOX_ENABLE_APP_MANAGER=1
 export OF_MAINTAINER="Bakushin"
 export OF_ENABLE_ALL_PARTITION_TOOLS=1
 export OF_USE_LEGACY_TIME_FIXUP=1
+export OF_NO_TREBLE_COMPATIBILITY_CHECK=1
 
 # Quick Backup Defaults
 export OF_QUICK_BACKUP_LIST="/boot;/data;/system;/system_root;/vendor;"
