@@ -100,6 +100,9 @@ BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE := 3221225472
 BOARD_SUPER_PARTITION_VENDOR_DEVICE_SIZE := 2147483648
 BOARD_SUPER_PARTITION_CUST_DEVICE_SIZE := 872415232
 
+# Properties
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+
 # Recovery
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
@@ -135,6 +138,9 @@ TW_MAX_BRIGHTNESS := 4095
 TW_SUPPORT_INPUT_AIDL_HAPTICS := true
 TW_THEME := portrait_hdpi
 TW_USE_TOOLBOX := true
+TW_INCLUDE_RESETPROP := true
+TW_OVERRIDE_SYSTEM_PROPS := \
+    "ro.build.date.utc;ro.build.product;ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental;ro.product.device=ro.product.system.device;ro.product.model=ro.product.system.model;ro.product.name=ro.product.system.name"
 
 # Debug Flags
 TARGET_USES_LOGD := true
