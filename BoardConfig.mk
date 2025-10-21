@@ -45,6 +45,12 @@ TARGET_NO_BOOTLOADER := true
 # Crypto
 BOARD_USES_QCOM_FBE_DECRYPTION := true
 
+# Hack: prevent anti rollback
+PLATFORM_SECURITY_PATCH := 2099-12-31
+PLATFORM_VERSION := 99.87.36
+VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
+PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
+
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc170000
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3
@@ -112,11 +118,14 @@ TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
 # TWRP specific build flags
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
-TW_DEFAULT_BRIGHTNESS := 1433
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone1/temp"
+TW_DEFAULT_BRIGHTNESS := 1433
+TW_DEVICE_VERSION := whyred by Bakushin
+TW_EXCLUDE_APEX := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXTRA_LANGUAGES := true
+TW_FRAMERATE := 60
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
 TW_INCLUDE_NTFS_3G := true
@@ -126,7 +135,6 @@ TW_MAX_BRIGHTNESS := 4095
 TW_SUPPORT_INPUT_AIDL_HAPTICS := true
 TW_THEME := portrait_hdpi
 TW_USE_TOOLBOX := true
-TW_FRAMERATE := 60
 
 # Debug Flags
 TARGET_USES_LOGD := true
