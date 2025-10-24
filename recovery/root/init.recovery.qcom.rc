@@ -5,11 +5,15 @@ on init
     setprop prepdecrypt.setpatch true
     setprop prepdecrypt.loglevel 2
     exec u:r:recovery:s0 -- /system/bin/resetprop ro.boot.verifiedbootstate orange
+
+on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
 on boot
+    start qseecomd
     exec u:r:recovery:s0 -- /system/bin/sleep 1s
+    start keymaster-3-0
     start health-hal-2-1
 
 on property:ro.twrp.fastbootd=0
