@@ -23,8 +23,8 @@ source /system/bin/whyfuncs.sh
 
 # do the work
 processit() {
-	local F="/system/etc/recovery.fstab";
-	local src_fstab="/system/etc/recovery-dynamic-44-flags.fstab";
+	#local F="/system/etc/recovery.fstab";
+	#local src_fstab="/system/etc/recovery-dynamic-44-flags.fstab";
 
 	# see which variant we are running
 	#local K=$(getprop "ro.orangefox.kernel_ver");
@@ -43,6 +43,7 @@ processit() {
 		#	cat $src_fstab >> $F;
 		#fi
                 cat /system/etc/recovery.fstab.dynamic >> /system/etc/recovery.fstab
+                cat /system/etc/twrp.flags.dynamic >> /system/etc/twrp.flags
 	else
     		TESTING_LOG "Non-dynamic ROM";
     		#TESTING_LOG "Discarding the 'Unmap Super Devices' menu";
@@ -53,12 +54,13 @@ processit() {
 		#	sed -i -e "s/ro,//g" $F; # remove the readonly flag
 		#	sed -i -e '/erofs/d' $F; # remove all erofs lines
     		#fi
+                cat /system/etc/recovery.fstab.fde >> /system/etc/recovery.fstab
+                cat /system/etc/twrp.flags.fde >> /system/etc/twrp.flags
                 cat /system/etc/twrp.flags.normal >> /system/etc/twrp.flags
-
 	fi
 
 	# cleanup
-	rm -f $src_fstab;
+	#rm -f $src_fstab;
 }
 
 # --- #
