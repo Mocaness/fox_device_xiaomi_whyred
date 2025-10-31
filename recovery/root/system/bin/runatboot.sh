@@ -28,8 +28,9 @@ source /system/bin/whyfuncs.sh
 # change the dynamic build into non-dynamic, on the fly, as far as is possible
 morph_into_non_dynamic() {
 	# ensure that we're running the dynamic variant of OrangeFox
-	local d=$(is_dynamic_build);
-	[ "$d" != "1" ] && return; # not a dynamic OrangeFox build
+	#local d=$(is_dynamic_build);
+	local d=$($rom_has_dynamic_partitions);
+        [ "$d" != "1" ] && return; # not a dynamic OrangeFox build
 
 	# confirm that the "Super" symlinks have been created
 	d=$(getprop "twrp.super.symlinks_created");

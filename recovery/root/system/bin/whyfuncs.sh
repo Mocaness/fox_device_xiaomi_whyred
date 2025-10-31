@@ -70,7 +70,8 @@ set_read_write_partitions() {
   local fastbootd_tw=i=$(getprop "ro.twrp.fastbootd");
   [ "$fastbootd_of" = "1" ] || [ "$fastbootd_twrp" = "1" ] && return; # don't run this in fastbootd mode
 
-  local is_dynamic=$(is_dynamic_build);
+  #local is_dynamic=$(is_dynamic_build);
+  local is_dynamic=$(rom_has_dynamic_partitions);
   [ "$is_dynamic" != "1" ] && return; # only run on dynamic
 
   local Parts="system system_ext vendor product odm";
